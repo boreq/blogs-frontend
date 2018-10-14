@@ -1,0 +1,29 @@
+<div class="modal-header">
+    <h5 class="modal-title">Sign up</h5>
+    <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<div class="modal-body">
+
+    <app-form-errors [formErrors]="errors"></app-form-errors>
+
+    <form>
+        <app-input-field type="text" label="Username" name="username"
+                         [(model)]="model.username" [formErrors]="errors"></app-input-field>
+
+        <app-input-field type="password" label="Password" name="password"
+                         [(model)]="model.password" [formErrors]="errors"></app-input-field>
+
+        <app-input-field type="password" label="Confirm password" name="confirm_password"
+                         [(model)]="model.confirm_password" [formErrors]="errors"></app-input-field>
+    </form>
+</div>
+
+<div class="modal-footer">
+    <app-spinner-button [working]="working" (click)="register()" label="Sign Up"></app-spinner-button>
+    <button type="button" class="btn btn-secondary" (click)="close()">
+        Close
+    </button>
+</div>

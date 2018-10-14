@@ -1,0 +1,3 @@
+<button type="button" class="btn btn-primary" [ngClass]="{'disabled': this.working}">
+    <i class="fas fa-spinner fa-spin" *ngIf="working"></i> {{label}}
+</button>

@@ -1,0 +1,13 @@
+<div class="form-group">
+    <label for="{{name}}-input">
+        {{label}}
+    </label>
+
+    <input type="{{type}}" class="form-control" name="{{name}}" id="{{name}}-input"
+           [ngModel]="model" (ngModelChange)="onNgModelChange($event)"
+           [ngClass]="{'is-invalid': invalid}">
+
+    <div class="invalid-feedback">
+        <div *ngFor="let error of errors">{{error}}</div>
+    </div>
+</div>
