@@ -18,7 +18,6 @@ export class AppComponent extends CleanupSubscriptionsComponent implements OnIni
                 private authEventsService: AuthEventsService,
                 private authService: AuthService) {
         super();
-
     }
 
     ngOnInit(): void {
@@ -40,6 +39,7 @@ export class AppComponent extends CleanupSubscriptionsComponent implements OnIni
     }
 
     login(): void {
+        this.authModalService.openLoginModal();
     }
 
 }

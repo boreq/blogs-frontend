@@ -6,6 +6,7 @@ import {HttpClient} from '@angular/common/http';
 import {UserWithToken} from '../dto/user-with-token';
 import {CookieService} from 'ngx-cookie-service';
 import {User} from '../dto/user';
+import {LoginFormModel} from '../dto/login-form-model';
 
 @Injectable({
     providedIn: 'root'
@@ -21,6 +22,11 @@ export class AuthService {
     register(registerFormModel: RegisterFormModel): Observable<UserWithToken> {
         const url = environment.api + 'auth/register';
         return this.http.post<UserWithToken>(url, registerFormModel);
+    }
+
+    login(loginFormModel: LoginFormModel): Observable<UserWithToken> {
+        const url = environment.api + 'auth/login';
+        return this.http.post<UserWithToken>(url, loginFormModel);
     }
 
     checkLogin(): Observable<User> {

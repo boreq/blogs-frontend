@@ -14,6 +14,7 @@ import {AuthEventsService} from './auth/service/auth-events.service';
 import {AuthService} from './auth/service/auth.service';
 import {CookieService} from 'ngx-cookie-service';
 import {AuthorizationInterceptor} from './auth/http-interceptors/authorization-interceptor';
+import {LoginModalComponent} from './auth/component/login-modal/login-modal.component';
 
 @NgModule({
     declarations: [
@@ -21,7 +22,8 @@ import {AuthorizationInterceptor} from './auth/http-interceptors/authorization-i
         RegisterModalComponent,
         SpinnerButtonComponent,
         FormErrorsComponent,
-        InputFieldComponent
+        InputFieldComponent,
+        LoginModalComponent
     ],
     imports: [
         NgbModule,
@@ -39,7 +41,8 @@ import {AuthorizationInterceptor} from './auth/http-interceptors/authorization-i
         {provide: HTTP_INTERCEPTORS, useClass: AuthorizationInterceptor, multi: true}
     ],
     entryComponents: [
-        RegisterModalComponent
+        RegisterModalComponent,
+        LoginModalComponent
     ],
     bootstrap: [AppComponent]
 })
