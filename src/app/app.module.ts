@@ -20,7 +20,9 @@ import {UserMenuComponent} from './base/component/user-menu/user-menu.component'
 import {BlogsComponent} from './blogs/component/blogs/blogs.component';
 import {BlogElementComponent} from './blogs/component/blog-element/blog-element.component';
 import {SortingComponent} from './base/component/sorting/sorting.component';
-import { PaginationComponent } from './base/component/pagination/pagination.component';
+import {PaginationComponent} from './base/component/pagination/pagination.component';
+import {MomentModule} from 'ngx-moment';
+import { TimeComponent } from './base/component/time/time.component';
 
 @NgModule({
     declarations: [
@@ -35,7 +37,8 @@ import { PaginationComponent } from './base/component/pagination/pagination.comp
         BlogsComponent,
         BlogElementComponent,
         SortingComponent,
-        PaginationComponent
+        PaginationComponent,
+        TimeComponent
     ],
     imports: [
         NgbModule,
@@ -43,7 +46,8 @@ import { PaginationComponent } from './base/component/pagination/pagination.comp
         FormsModule,
         BrowserModule,
         AppRoutingModule,
-        HttpClientModule
+        HttpClientModule,
+        MomentModule
     ],
     providers: [
         AuthModalService,

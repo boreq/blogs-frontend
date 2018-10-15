@@ -11,6 +11,9 @@
         </a>
     </div>
     <div class="info">
-        <span>{{blog.subscriptions}} subscribers, last post {{blog.lastPost}}</span>
+        <span>{{blog.subscriptions}} subscribers</span>
+        <span *ngIf="blog.lastPost">
+            , last post <app-time [dateTime]="blog.lastPost"></app-time>
+        </span>
     </div>
 </div>
