@@ -20,32 +20,34 @@
 }
 
 // Navbar
-.navbar {
-    background-color: #fff;
-    border-bottom: 1px solid $color-border-gray;
-    font-size: 14px;
-    margin-bottom: 1em;
+::ng-deep {
+    .navbar {
+        background-color: #fff;
+        border-bottom: 1px solid $color-border-gray;
+        font-size: 14px;
+        margin-bottom: 1em;
 
-    .navbar-brand {
-        //color: inherit;
-        font-size: 20px;
-        height: 46px;
-        line-height: 26px;
-        padding: 8px;
-    }
-
-    .navbar-nav {
-        .nav-link {
-            margin: 0 5px 0 5px;
-            color: inherit;
-            padding-bottom: 5px;
-            border-bottom: 3px solid transparent;
+        .navbar-brand {
+            color: $color-text;
+            font-size: 20px;
+            height: 46px;
+            line-height: 26px;
+            padding: 8px;
         }
 
-        .nav-link:hover, .nav-link.active {
-            color: inherit;
-            padding-bottom: 5px;
-            border-bottom: 3px solid $color-primary;
+        .navbar-nav {
+            .nav-link {
+                margin: 0 5px 0 5px;
+                color: inherit;
+                padding-bottom: 5px;
+                border-bottom: 3px solid transparent;
+            }
+
+            .nav-link:hover, .nav-link.active {
+                color: inherit;
+                padding-bottom: 5px;
+                border-bottom: 3px solid $color-primary;
+            }
         }
     }
 }

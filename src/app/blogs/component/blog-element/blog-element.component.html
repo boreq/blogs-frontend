@@ -1,7 +1,14 @@
 <div class="blog">
     <div class="header">
-        <a class="title" href="#">{{blog.title}}</a>
-        <a class="url" href="#">example.com</a>
+        <span class="title">
+            <span class="subscription-icon">
+                <i class="far fa-paper-plane"></i>
+            </span>
+            <a href="#">{{blog.title}}</a>
+        </span>
+        <a class="url" href="#">
+            example.com
+        </a>
     </div>
     <div class="info">
         <span>{{blog.subscriptions}} subscribers, last post {{blog.lastPost}}</span>
