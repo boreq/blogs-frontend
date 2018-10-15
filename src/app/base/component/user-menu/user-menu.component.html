@@ -1,0 +1,22 @@
+<ul class="navbar-nav" *ngIf="loading">
+    <app-spinner></app-spinner>
+</ul>
+<ul class="navbar-nav" *ngIf="!loading && !user">
+    <li class="nav-item">
+        <a class="nav-link" (click)="register()">Sign up</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" (click)="login()">Sign in</a>
+    </li>
+</ul>
+<ul class="navbar-nav" *ngIf="!loading && user">
+    <li class="nav-item dropdown" ngbDropdown>
+        <a class="nav-link dropdown-toggle" role="button" ngbDropdownToggle>
+            <i class="fas fa-user"></i> {{user.username}}
+        </a>
+        <div class="dropdown-menu" ngbDropdownMenu>
+            <a class="dropdown-item">Settings</a>
+            <a class="dropdown-item" (click)="logout()">Sign out</a>
+        </div>
+    </li>
+</ul>

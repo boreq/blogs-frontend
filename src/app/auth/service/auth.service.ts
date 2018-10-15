@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
 import {environment} from '../../../environments/environment';
 import {RegisterFormModel} from '../dto/register-form-model';
 import {HttpClient} from '@angular/common/http';
@@ -7,6 +6,7 @@ import {UserWithToken} from '../dto/user-with-token';
 import {CookieService} from 'ngx-cookie-service';
 import {User} from '../dto/user';
 import {LoginFormModel} from '../dto/login-form-model';
+import {Observable, of} from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -29,9 +29,20 @@ export class AuthService {
         return this.http.post<UserWithToken>(url, loginFormModel);
     }
 
+    logout(): Observable<void> {
+        const url = environment.api + 'auth/logout';
+        return this.http.post<void>(url, null);
+    }
+
     checkLogin(): Observable<User> {
-        const url = environment.api + 'auth/check-login';
-        return this.http.get<User>(url);
+        const token = this.getToken();
+        console.log(token);
+        if (token) {
+            const url = environment.api + 'auth/check-login';
+            return this.http.get<User>(url);
+        } else {
+            return of(null);
+        }
     }
 
     setToken(token: string): void {
@@ -40,6 +51,10 @@ export class AuthService {
 
     getToken(): string {
         return this.cookieService.get(this.sessionCookieName);
+    }
+
+    clearToken(): void {
+        this.cookieService.delete(this.sessionCookieName);
     }
 
 }

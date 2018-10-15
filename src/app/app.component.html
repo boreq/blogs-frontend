@@ -9,8 +9,8 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/">Blogs</a>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/blogs" routerLinkActive="active">Blogs</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/">Posts</a>
@@ -24,14 +24,7 @@
                 </ul>
 
                 <div class="navbar-right">
-                    <ul class="navbar-nav" *ngIf="!user">
-                        <li class="nav-item">
-                            <a class="nav-link" (click)="register()">Sign up</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" (click)="login()">Sign in</a>
-                        </li>
-                    </ul>
+                    <app-user-menu [loading]="loading"></app-user-menu>
                 </div>
             </div>
         </div>

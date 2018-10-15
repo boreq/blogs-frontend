@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {User} from './auth/dto/user';
-import {AuthEventsService} from './auth/service/auth-events.service';
-import {AuthModalService} from './auth/service/auth-modal.service';
 import {CleanupSubscriptionsComponent} from './base/component/cleanup-subscriptions/cleanup-subscriptions.component';
+import {throwError} from 'rxjs';
+import {AuthEventsService} from './auth/service/auth-events.service';
 import {AuthService} from './auth/service/auth.service';
 
 @Component({
@@ -12,34 +11,23 @@ import {AuthService} from './auth/service/auth.service';
 })
 export class AppComponent extends CleanupSubscriptionsComponent implements OnInit {
     appTitle = 'Blogs';
-    user: User;
+    loading = false;
 
-    constructor(private authModalService: AuthModalService,
-                private authEventsService: AuthEventsService,
+    constructor(private authEventsService: AuthEventsService,
                 private authService: AuthService) {
         super();
     }
 
-    ngOnInit(): void {
-        this.registerSubscription(
-            this.authEventsService.loggedIn$
-                .subscribe(user => {
-                    this.user = user;
-                })
-        );
-
+    ngOnInit() {
+        this.loading = true;
         this.authService.checkLogin()
             .subscribe(user => {
-                this.authEventsService.loggedIn(user);
-            });
+                    this.loading = false;
+                    this.authEventsService.loggedIn(user);
+                },
+                error => {
+                    this.loading = false;
+                    throwError(error);
+                });
     }
-
-    register(): void {
-        this.authModalService.openRegisterModal();
-    }
-
-    login(): void {
-        this.authModalService.openLoginModal();
-    }
-
 }

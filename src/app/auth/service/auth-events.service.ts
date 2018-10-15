@@ -12,4 +12,5 @@ export class AuthEventsService {
     loggedIn(user: User): void {
         this.loggedIn$.next(user);
     }
+
 }

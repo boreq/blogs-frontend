@@ -24,6 +24,7 @@ export class AuthorizationInterceptor implements HttpInterceptor {
             .pipe(
                 catchError(err => {
                     if (err.status === 401) {
+                        this.authService.clearToken();
                         this.authEventsService.loggedIn(null);
                     }
                     return throwError(err);

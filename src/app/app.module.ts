@@ -15,6 +15,9 @@ import {AuthService} from './auth/service/auth.service';
 import {CookieService} from 'ngx-cookie-service';
 import {AuthorizationInterceptor} from './auth/http-interceptors/authorization-interceptor';
 import {LoginModalComponent} from './auth/component/login-modal/login-modal.component';
+import {SpinnerComponent} from './base/component/spinner/spinner.component';
+import {UserMenuComponent} from './base/component/user-menu/user-menu.component';
+import { BlogsComponent } from './blogs/component/blogs/blogs.component';
 
 @NgModule({
     declarations: [
@@ -23,7 +26,10 @@ import {LoginModalComponent} from './auth/component/login-modal/login-modal.comp
         SpinnerButtonComponent,
         FormErrorsComponent,
         InputFieldComponent,
-        LoginModalComponent
+        LoginModalComponent,
+        SpinnerComponent,
+        UserMenuComponent,
+        BlogsComponent
     ],
     imports: [
         NgbModule,
