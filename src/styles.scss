@@ -10,10 +10,11 @@ html, body {
 a:hover {
     cursor: pointer;
 }
-//h1 {
-//    margin-top: 0;
-//    font-size: 20px;
-//}
+
+h1 {
+    font-size: 20px;
+}
+
 //
 //h2 {
 //    font-size: 18px;
@@ -73,13 +74,14 @@ a:hover {
 //    color: #fff;
 //}
 //
-//a {
-//    color: $primary-color;
-//}
-//
-//a:hover {
-//    color: darken($primary-color, 20%);
-//}
+a {
+    color: $color-primary;
+}
+
+a:hover {
+    color: $color-primary;
+    text-decoration: underline;
+}
 //
 //.dimmed {
 //    color: $color-dimmed;

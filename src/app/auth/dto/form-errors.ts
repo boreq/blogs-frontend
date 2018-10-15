@@ -4,5 +4,5 @@ interface FieldErrors {
 
 export class FormErrors {
     errors: string[];
-    field_errors: FieldErrors;
+    fieldErrors: FieldErrors;
 }

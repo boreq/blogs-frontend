@@ -18,6 +18,7 @@ import {LoginModalComponent} from './auth/component/login-modal/login-modal.comp
 import {SpinnerComponent} from './base/component/spinner/spinner.component';
 import {UserMenuComponent} from './base/component/user-menu/user-menu.component';
 import { BlogsComponent } from './blogs/component/blogs/blogs.component';
+import { BlogElementComponent } from './blogs/component/blog-element/blog-element.component';
 
 @NgModule({
     declarations: [
@@ -29,7 +30,8 @@ import { BlogsComponent } from './blogs/component/blogs/blogs.component';
         LoginModalComponent,
         SpinnerComponent,
         UserMenuComponent,
-        BlogsComponent
+        BlogsComponent,
+        BlogElementComponent
     ],
     imports: [
         NgbModule,

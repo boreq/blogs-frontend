@@ -42,9 +42,9 @@ export class InputFieldComponent {
 
     private getErrors(formErrors: FormErrors, name: string): string[] {
         if (formErrors &&
-            formErrors.field_errors &&
-            formErrors.field_errors[name]) {
-            return formErrors.field_errors[name];
+            formErrors.fieldErrors &&
+            formErrors.fieldErrors[name]) {
+            return formErrors.fieldErrors[name];
         }
         return [];
     }

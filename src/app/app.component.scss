@@ -22,8 +22,9 @@
 // Navbar
 .navbar {
     background-color: #fff;
-    border-bottom: 1px solid #d9d9d9;
+    border-bottom: 1px solid $color-border-gray;
     font-size: 14px;
+    margin-bottom: 1em;
 
     .navbar-brand {
         //color: inherit;
@@ -44,7 +45,7 @@
         .nav-link:hover, .nav-link.active {
             color: inherit;
             padding-bottom: 5px;
-            border-bottom: 3px solid $primary-color;
+            border-bottom: 3px solid $color-primary;
         }
     }
 }
