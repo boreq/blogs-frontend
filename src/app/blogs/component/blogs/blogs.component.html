@@ -9,12 +9,18 @@
     </div>
     <div class="row">
         <div class="col-sm-2">
-            Sorting
+            <app-sorting [sortingDefinitions]="sortingDefinitions" [sortingModel]="sortingModel"
+                         (sortingModelChange)="onSortingModelChange($event)"></app-sorting>
+            <app-spinner *ngIf="loading"></app-spinner>
         </div>
 
         <div class="col-sm-10">
             <div>
-                <app-blog-element *ngFor="let blog of blogs" [blog]="blog"></app-blog-element>
+                <app-blog-element *ngFor="let blog of blogsList?.blogs" [blog]="blog"></app-blog-element>
+            </div>
+            <div class="pagination-wrapper">
+                <app-pagination *ngIf="blogsList" [page]="page" (pageChange)="onPageChange($event)"
+                                [allItems]="blogsList?.page?.allItems" [perPage]="perPage"></app-pagination>
             </div>
         </div>
     </div>

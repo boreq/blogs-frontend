@@ -1,0 +1,10 @@
+<ul>
+    <li *ngFor="let sortingDefinition of sortingDefinitions; let i = index;">
+        <a (click)="onClick(sortingDefinition)" [ngClass]="{active: isActive(sortingDefinition)}">
+            <i *ngIf="getSortingDirection(sortingDefinition) === null" class="fas fa-sort"></i>
+            <i *ngIf="getSortingDirection(sortingDefinition) === true" class="fas fa-sort-up"></i>
+            <i *ngIf="getSortingDirection(sortingDefinition) === false" class="fas fa-sort-down"></i>
+            {{sortingDefinition.label}}
+        </a>
+    </li>
+</ul>

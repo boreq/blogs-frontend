@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import {BlogsList} from '../dto/blogs-list';
+import {SortingModel} from '../../base/dto/sorting-model';
 
 @Injectable({
     providedIn: 'root'
@@ -12,8 +13,13 @@ export class BlogsService {
     constructor(private http: HttpClient) {
     }
 
-    list(): Observable<BlogsList> {
+    list(sortingModel: SortingModel, page: number, perPage: number): Observable<BlogsList> {
         const url = environment.api + 'blogs/list';
-        return this.http.get<BlogsList>(url);
+        let params = new HttpParams();
+        params = params.set('perPage', perPage.toString());
+        params = params.set('page', page.toString());
+        params = params.set('sort', sortingModel.key);
+        params = params.set('reverse', sortingModel.reverse ? 'true' : 'false');
+        return this.http.get<BlogsList>(url, {params: params});
     }
 }

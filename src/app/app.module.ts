@@ -17,8 +17,10 @@ import {AuthorizationInterceptor} from './auth/http-interceptors/authorization-i
 import {LoginModalComponent} from './auth/component/login-modal/login-modal.component';
 import {SpinnerComponent} from './base/component/spinner/spinner.component';
 import {UserMenuComponent} from './base/component/user-menu/user-menu.component';
-import { BlogsComponent } from './blogs/component/blogs/blogs.component';
-import { BlogElementComponent } from './blogs/component/blog-element/blog-element.component';
+import {BlogsComponent} from './blogs/component/blogs/blogs.component';
+import {BlogElementComponent} from './blogs/component/blog-element/blog-element.component';
+import {SortingComponent} from './base/component/sorting/sorting.component';
+import { PaginationComponent } from './base/component/pagination/pagination.component';
 
 @NgModule({
     declarations: [
@@ -31,7 +33,9 @@ import { BlogElementComponent } from './blogs/component/blog-element/blog-elemen
         SpinnerComponent,
         UserMenuComponent,
         BlogsComponent,
-        BlogElementComponent
+        BlogElementComponent,
+        SortingComponent,
+        PaginationComponent
     ],
     imports: [
         NgbModule,
