@@ -40,7 +40,6 @@ export class BlogsComponent implements OnInit {
                 blogsList => {
                     this.loading = false;
                     this.blogsList = blogsList;
-                    console.log(this.blogsList);
                 },
                 error => {
                     this.loading = false;
