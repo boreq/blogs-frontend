@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Blog} from '../../dto/blog';
 
 @Component({
@@ -10,5 +10,19 @@ export class BlogElementComponent {
 
     @Input()
     blog: Blog;
+
+    @Output()
+    subscribe = new EventEmitter<Blog>();
+
+    @Output()
+    unsubscribe = new EventEmitter<Blog>();
+
+    onSubscribeClick(event: any): void {
+        this.subscribe.next(this.blog);
+    }
+
+    onUnsubscribeClick(event: any): void {
+        this.unsubscribe.next(this.blog);
+    }
 
 }

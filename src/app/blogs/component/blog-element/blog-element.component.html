@@ -1,9 +1,12 @@
 <div class="blog">
     <div class="header">
         <span class="title">
-            <span class="subscription-icon">
+            <a class="subscription-icon" *ngIf="!blog.subscribed" (click)="onSubscribeClick($event)">
                 <i class="far fa-paper-plane"></i>
-            </span>
+            </a>
+            <a class="subscription-icon" *ngIf="blog.subscribed" (click)="onUnsubscribeClick($event)">
+                <i class="fas fa-paper-plane"></i>
+            </a>
             <a href="#">{{blog.title}}</a>
         </span>
         <a class="url" href="#">

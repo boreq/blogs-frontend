@@ -22,7 +22,7 @@ import {BlogElementComponent} from './blogs/component/blog-element/blog-element.
 import {SortingComponent} from './base/component/sorting/sorting.component';
 import {PaginationComponent} from './base/component/pagination/pagination.component';
 import {MomentModule} from 'ngx-moment';
-import { TimeComponent } from './base/component/time/time.component';
+import {TimeComponent} from './base/component/time/time.component';
 
 @NgModule({
     declarations: [

@@ -3,6 +3,8 @@ import {BlogsService} from '../../service/blogs.service';
 import {SortingDefinition} from '../../../base/dto/sorting-definition';
 import {SortingModel} from '../../../base/dto/sorting-model';
 import {BlogsList} from '../../dto/blogs-list';
+import {Blog} from '../../dto/blog';
+import {BlogService} from '../../service/blog.service';
 
 @Component({
     selector: 'app-blogs',
@@ -23,7 +25,8 @@ export class BlogsComponent implements OnInit {
     loading: boolean;
     blogsList: BlogsList;
 
-    constructor(private blogsService: BlogsService) {
+    constructor(private blogsService: BlogsService,
+                private blogService: BlogService) {
     }
 
     ngOnInit() {
@@ -41,7 +44,7 @@ export class BlogsComponent implements OnInit {
                     this.loading = false;
                     this.blogsList = blogsList;
                 },
-                error => {
+                () => {
                     this.loading = false;
                 }
             );
@@ -58,6 +61,27 @@ export class BlogsComponent implements OnInit {
         if (!this.loading) {
             this.sortingModel = sortingModel;
             this.load();
+        }
+    }
+
+    subscribe(blog: Blog): void {
+        this.blogService.subscribe(blog.id)
+            .subscribe(() => {
+                this.updateSubscribedValue(blog, true);
+            });
+    }
+
+    unsubscribe(blog: Blog): void {
+        this.blogService.unsubscribe(blog.id)
+            .subscribe(() => {
+                this.updateSubscribedValue(blog, false);
+            });
+    }
+
+    private updateSubscribedValue(blog: Blog, subscribed: boolean): void {
+        const foundBlog = this.blogsList.blogs.find(b => b.id === blog.id);
+        if (foundBlog) {
+            foundBlog.subscribed = subscribed;
         }
     }
 }
