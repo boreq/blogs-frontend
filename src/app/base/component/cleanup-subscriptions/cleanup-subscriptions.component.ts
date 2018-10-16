@@ -1,9 +1,9 @@
 import {OnDestroy} from '@angular/core';
 import {Subscription} from 'rxjs';
 
-export class CleanupSubscriptionsComponent implements OnDestroy {
+export abstract class CleanupSubscriptionsComponent implements OnDestroy {
 
-    subscriptions: Subscription[] = [];
+    private subscriptions: Subscription[] = [];
 
     registerSubscription(subscription: Subscription): void {
         this.subscriptions.push(subscription);

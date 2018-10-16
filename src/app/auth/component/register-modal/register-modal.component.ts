@@ -40,8 +40,8 @@ export class RegisterModalComponent implements OnInit {
             .subscribe(
                 userWithToken => {
                     this.working = false;
-                    this.authEventsService.loggedIn(userWithToken.user);
                     this.authService.setToken(userWithToken.token);
+                    this.authEventsService.loggedIn(userWithToken.user);
                     this.close();
                 },
                 error => {

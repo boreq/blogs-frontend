@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {RegisterFormModel} from '../../dto/register-form-model';
+import {Component, OnInit} from '@angular/core';
 import {FormErrors} from '../../dto/form-errors';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {AuthService} from '../../service/auth.service';
@@ -7,9 +6,9 @@ import {AuthEventsService} from '../../service/auth-events.service';
 import {LoginFormModel} from '../../dto/login-form-model';
 
 @Component({
-  selector: 'app-login-modal',
-  templateUrl: './login-modal.component.html',
-  styleUrls: ['./login-modal.component.scss']
+    selector: 'app-login-modal',
+    templateUrl: './login-modal.component.html',
+    styleUrls: ['./login-modal.component.scss']
 })
 export class LoginModalComponent implements OnInit {
 
@@ -41,8 +40,8 @@ export class LoginModalComponent implements OnInit {
             .subscribe(
                 userWithToken => {
                     this.working = false;
-                    this.authEventsService.loggedIn(userWithToken.user);
                     this.authService.setToken(userWithToken.token);
+                    this.authEventsService.loggedIn(userWithToken.user);
                     this.close();
                 },
                 error => {

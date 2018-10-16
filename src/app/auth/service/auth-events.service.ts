@@ -7,7 +7,7 @@ import {User} from '../dto/user';
 })
 export class AuthEventsService {
 
-    loggedIn$ = new BehaviorSubject<User>(null);
+    loggedIn$ = new BehaviorSubject<User>(undefined);
 
     loggedIn(user: User): void {
         this.loggedIn$.next(user);

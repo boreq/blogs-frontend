@@ -5,13 +5,16 @@ import {SortingModel} from '../../../base/dto/sorting-model';
 import {BlogsList} from '../../dto/blogs-list';
 import {Blog} from '../../dto/blog';
 import {BlogService} from '../../service/blog.service';
+import {AuthEventsService} from '../../../auth/service/auth-events.service';
+import {CleanupSubscriptionsComponent} from '../../../base/component/cleanup-subscriptions/cleanup-subscriptions.component';
+import {User} from '../../../auth/dto/user';
 
 @Component({
     selector: 'app-blogs',
     templateUrl: './blogs.component.html',
     styleUrls: ['./blogs.component.scss']
 })
-export class BlogsComponent implements OnInit {
+export class BlogsComponent extends CleanupSubscriptionsComponent implements OnInit {
 
     readonly perPage = 20;
     readonly sortingDefinitions: SortingDefinition[] = [
@@ -20,20 +23,25 @@ export class BlogsComponent implements OnInit {
         {label: 'Last post', key: 'lastPost', reverse: true}
     ];
 
+    user: User;
     sortingModel: SortingModel;
     page: number;
     loading: boolean;
     blogsList: BlogsList;
 
     constructor(private blogsService: BlogsService,
-                private blogService: BlogService) {
+                private blogService: BlogService,
+                private authEventsService: AuthEventsService) {
+        super();
     }
 
     ngOnInit() {
         this.sortingModel = {key: this.sortingDefinitions[0].key, reverse: false};
         this.page = 1;
         this.loading = false;
+
         this.load();
+        this.loadOnChangesInUser();
     }
 
     private load() {
@@ -48,6 +56,20 @@ export class BlogsComponent implements OnInit {
                     this.loading = false;
                 }
             );
+    }
+
+    private loadOnChangesInUser() {
+        this.registerSubscription(
+            this.authEventsService.loggedIn$
+                .subscribe(user => {
+                    if (this.user !== undefined) {
+                        this.user = user;
+                        this.load();
+                    } else {
+                        this.user = user;
+                    }
+                })
+        );
     }
 
     onPageChange(page: number): void {
@@ -84,4 +106,5 @@ export class BlogsComponent implements OnInit {
             foundBlog.subscribed = subscribed;
         }
     }
+
 }
