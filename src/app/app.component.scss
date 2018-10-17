@@ -16,10 +16,9 @@
 }
 
 #site > :last-child {
-    padding-bottom: 4em; /* 3em footer + 1em padding */
+    padding-bottom: 4em; // 3em footer + 1em padding
 }
 
-// Navbar
 ::ng-deep {
     .navbar {
         background-color: #fff;
@@ -52,39 +51,10 @@
     }
 }
 
-//
-//.navbar-nav > li > a {
-//    padding: 20px 10px 5px 10px;
-//    margin: 0px 5px 7px 5px;
-//}
-//
-////.nav > li > a:focus, .nav > li > a:hover {
-////    background-color: transparent;
-////}
-//
-//.navbar-brand {
-//    color: inherit;
-//    font-size: 20px;
-//    height: 60px;
-//    line-height: 30px;
-//    padding: 15px;
-//}
-//
-//.navbar-brand:hover {
-//    color: inherit;
-//}
-//
-//.navbar-toggle {
-//    border-color: $border-gray;
-//}
-//
-//.navbar-toggle .icon-bar {
-//    background-color: #000;
-//}
-//
 footer {
     a {
         color: inherit;
         cursor: pointer;
+        margin-right: .2em;
     }
 }
