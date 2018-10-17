@@ -11,6 +11,8 @@ export class BlogElementComponent {
     @Input()
     blog: Blog;
 
+    cleanUrl: string;
+
     @Output()
     subscribe = new EventEmitter<Blog>();
 

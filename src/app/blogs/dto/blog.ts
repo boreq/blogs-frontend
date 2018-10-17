@@ -3,5 +3,7 @@ export class Blog {
     title: string;
     subscriptions: number;
     lastPost: Date;
-    subscribed: boolean;
+    url: string;
+    cleanUrl: string;
+    subscribed?: boolean;
 }
