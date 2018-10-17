@@ -36,7 +36,6 @@ export class AuthService {
 
     checkLogin(): Observable<User> {
         const token = this.getToken();
-        console.log(token);
         if (token) {
             const url = environment.api + 'auth/check-login';
             return this.http.get<User>(url);
