@@ -1,10 +1,14 @@
 <div class="blog">
     <div class="header">
         <span class="title">
-            <a class="subscription-icon" *ngIf="!blog.subscribed" (click)="onSubscribeClick($event)">
+            <a class="subscription-icon" *ngIf="!user" (click)="showRegisterPopup()"
+               ngbTooltip="Sign up to subscribe to blogs!" placement="left">
                 <i class="far fa-paper-plane"></i>
             </a>
-            <a class="subscription-icon" *ngIf="blog.subscribed" (click)="onUnsubscribeClick($event)">
+            <a class="subscription-icon" *ngIf="user && !blog.subscribed" (click)="onSubscribeClick($event)">
+                <i class="far fa-paper-plane"></i>
+            </a>
+            <a class="subscription-icon" *ngIf="user && blog.subscribed" (click)="onUnsubscribeClick($event)">
                 <i class="fas fa-paper-plane"></i>
             </a>
             <a href="#">{{blog.title}}</a>
