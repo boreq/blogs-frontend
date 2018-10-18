@@ -1,9 +1,5 @@
 import {Blog} from './blog';
-
-class Category {
-    id: number;
-    name: string;
-}
+import {Category} from './category';
 
 export class Post {
     id: number;

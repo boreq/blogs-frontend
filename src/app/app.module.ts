@@ -25,6 +25,7 @@ import {MomentModule} from 'ngx-moment';
 import {TimeComponent} from './base/component/time/time.component';
 import {PostsComponent} from './blogs/component/posts/posts.component';
 import {PostElementComponent} from './blogs/component/post-element/post-element.component';
+import { BlogComponent } from './blogs/component/blog/blog.component';
 
 @NgModule({
     declarations: [
@@ -42,7 +43,8 @@ import {PostElementComponent} from './blogs/component/post-element/post-element.
         PaginationComponent,
         TimeComponent,
         PostsComponent,
-        PostElementComponent
+        PostElementComponent,
+        BlogComponent
     ],
     imports: [
         NgbPaginationModule,

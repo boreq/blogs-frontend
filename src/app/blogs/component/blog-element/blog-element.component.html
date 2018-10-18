@@ -11,7 +11,7 @@
             <a class="subscription-icon" *ngIf="user && blog.subscribed" (click)="onUnsubscribeClick($event)">
                 <i class="fas fa-paper-plane"></i>
             </a>
-            <a href="#">{{blog.title}}</a>
+            <a [routerLink]="['/blog', blog.id]">{{blog.title}}</a>
         </span>
         <a class="url" href="{{blog.url}}">
             {{blog.cleanUrl}}

@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <a class="title" href="{{blog.url}}">
+                <h1>{{blog.title}}</h1>
+                <p>{{blog.cleanUrl}}</p>
+            </a>
+
+            <div class="subscribe">
+                <button type="button" class="btn btn-success btn-block"
+                        *ngIf="!user" (click)="showRegisterPopup()"
+                        ngbTooltip="Sign up to subscribe to blogs!" placement="right">
+                    <i class="far fa-paper-plane"></i> Subscribe
+                </button>
+
+                <button type="button" class="btn btn-success btn-block"
+                        *ngIf="user && !blog.subscribed" (click)="subscribe()">
+                    <i class="far fa-paper-plane"></i> Subscribe
+                </button>
+
+                <button type="button" class="btn btn-danger btn-block"
+                        *ngIf="user && blog.subscribed" (click)="unsubscribe()">
+                    <i class="fas fa-paper-plane"></i> Unsubscribe
+                </button>
+            </div>
+
+            <div class="categories" *ngIf="categories">
+                <h2>Categories</h2>
+                <ul>
+                    <li *ngFor="let category of categories">
+                        <a href="#">
+                            {{category.name}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="tags" *ngIf="tags">
+                <h2>Tags</h2>
+                <ul>
+                    <li *ngFor="let tag of tags">
+                        <a href="#">
+                            {{tag.name}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="col-sm-9">
+            <div class="spinner" *ngIf="loading">
+                <app-spinner></app-spinner>
+            </div>
+            <div *ngIf="!loading">
+                <app-post-element *ngFor="let post of posts" [post]="post"></app-post-element>
+            </div>
+        </div>
+    </div>
+</div>

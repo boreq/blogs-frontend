@@ -23,7 +23,7 @@
         <span>
             {{post.stars}} stars, posted
             <app-time [dateTime]="post.date"></app-time>
-            on <a href="">{{post.blog.title}}</a>
+            on <a [routerLink]="['/blog', post.blog.id]">{{post.blog.title}}</a>
         </span>
         <span class="category">
             {{post.category.name}}
