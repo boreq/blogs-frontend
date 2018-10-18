@@ -5,7 +5,7 @@
         </div>
 
         <div class="col-sm-10">
-            <h1>Blogs</h1>
+            <h1>Posts</h1>
         </div>
     </div>
     <div class="row">
@@ -20,13 +20,11 @@
             </div>
             <div *ngIf="!loading">
                 <div>
-                    <app-blog-element *ngFor="let blog of blogsList?.blogs" [blog]="blog"
-                                      (subscribe)="subscribe($event)"
-                                      (unsubscribe)="unsubscribe($event)"></app-blog-element>
+                    <app-post-element *ngFor="let post of postsList?.posts" [post]="post"></app-post-element>
                 </div>
                 <div class="pagination-wrapper">
-                    <app-pagination *ngIf="blogsList" [page]="page" (pageChange)="onPageChange($event)"
-                                    [allItems]="blogsList?.page?.allItems" [perPage]="perPage"></app-pagination>
+                    <app-pagination *ngIf="postsList" [page]="page" (pageChange)="onPageChange($event)"
+                                    [allItems]="postsList?.page?.allItems" [perPage]="perPage"></app-pagination>
                 </div>
             </div>
         </div>

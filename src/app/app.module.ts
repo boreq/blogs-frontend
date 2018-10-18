@@ -2,7 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {NgbModalModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbDropdownModule, NgbModalModule, NgbPaginationModule, NgbTooltipModule} from '@ng-bootstrap/ng-bootstrap';
 import {RegisterModalComponent} from './auth/component/register-modal/register-modal.component';
 import {AuthModalService} from './auth/service/auth-modal.service';
 import {FormsModule} from '@angular/forms';
@@ -23,6 +23,8 @@ import {SortingComponent} from './base/component/sorting/sorting.component';
 import {PaginationComponent} from './base/component/pagination/pagination.component';
 import {MomentModule} from 'ngx-moment';
 import {TimeComponent} from './base/component/time/time.component';
+import {PostsComponent} from './blogs/component/posts/posts.component';
+import {PostElementComponent} from './blogs/component/post-element/post-element.component';
 
 @NgModule({
     declarations: [
@@ -38,11 +40,15 @@ import {TimeComponent} from './base/component/time/time.component';
         BlogElementComponent,
         SortingComponent,
         PaginationComponent,
-        TimeComponent
+        TimeComponent,
+        PostsComponent,
+        PostElementComponent
     ],
     imports: [
-        NgbModule,
+        NgbPaginationModule,
         NgbModalModule,
+        NgbTooltipModule,
+        NgbDropdownModule,
         FormsModule,
         BrowserModule,
         AppRoutingModule,

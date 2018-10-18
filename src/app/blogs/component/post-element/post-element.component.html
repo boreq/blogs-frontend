@@ -1,0 +1,32 @@
+<div class="blog">
+    <div class="header">
+        <span class="title">
+            <a class="subscription-icon" *ngIf="!user" (click)="showRegisterPopup()"
+               ngbTooltip="Sign up to star posts!" placement="left">
+                <i class="far fa-star"></i>
+            </a>
+            <a class="subscription-icon" *ngIf="user && !post.starred" (click)="onStarClick($event)">
+                <i class="far fa-star"></i>
+            </a>
+            <a class="subscription-icon" *ngIf="user && post.starred" (click)="onUnstarClick($event)">
+                <i class="fas fa-star"></i>
+            </a>
+            <a href="{{post.url}}">{{post.title}}</a>
+        </span>
+        <ul class="tags">
+            <li><a href="#">#tag1</a></li>
+            <li><a href="#">#tag2</a></li>
+            <li><a href="#">#tag3</a></li>
+        </ul>
+    </div>
+    <div class="info">
+        <span>
+            {{post.stars}} stars, posted
+            <app-time [dateTime]="post.date"></app-time>
+            on <a href="">{{post.blog.title}}</a>
+        </span>
+        <span class="category">
+            {{post.category.name}}
+        </span>
+    </div>
+</div>

@@ -1,36 +1,33 @@
 import {Component, OnInit} from '@angular/core';
-import {BlogsService} from '../../service/blogs.service';
 import {SortingDefinition} from '../../../base/dto/sorting-definition';
 import {SortingModel} from '../../../base/dto/sorting-model';
-import {BlogsList} from '../../dto/blogs-list';
-import {Blog} from '../../dto/blog';
-import {BlogService} from '../../service/blog.service';
 import {AuthEventsService} from '../../../auth/service/auth-events.service';
 import {CleanupSubscriptionsComponent} from '../../../base/component/cleanup-subscriptions/cleanup-subscriptions.component';
 import {User} from '../../../auth/dto/user';
+import {PostsService} from '../../service/posts.service';
+import {PostsList} from '../../dto/posts-list';
 
 @Component({
-    selector: 'app-blogs',
-    templateUrl: './blogs.component.html',
-    styleUrls: ['./blogs.component.scss']
+    selector: 'app-posts',
+    templateUrl: './posts.component.html',
+    styleUrls: ['./posts.component.scss']
 })
-export class BlogsComponent extends CleanupSubscriptionsComponent implements OnInit {
+export class PostsComponent extends CleanupSubscriptionsComponent implements OnInit {
 
     readonly perPage = 20;
     readonly sortingDefinitions: SortingDefinition[] = [
+        {label: 'Date', key: 'date', reverse: true},
         {label: 'Title', key: 'title', reverse: false},
-        {label: 'Subscriptions', key: 'subscriptions', reverse: true},
-        {label: 'Last post', key: 'lastPost', reverse: true}
+        {label: 'Stars', key: 'stars', reverse: true}
     ];
 
     user: User;
     sortingModel: SortingModel;
     page: number;
     loading: boolean;
-    blogsList: BlogsList;
+    postsList: PostsList;
 
-    constructor(private blogsService: BlogsService,
-                private blogService: BlogService,
+    constructor(private postsService: PostsService,
                 private authEventsService: AuthEventsService) {
         super();
     }
@@ -44,13 +41,13 @@ export class BlogsComponent extends CleanupSubscriptionsComponent implements OnI
         this.loadOnChangesInUser();
     }
 
-    private load() {
+    private load(): void {
         this.loading = true;
-        this.blogsService.list(this.sortingModel, this.page, this.perPage)
+        this.postsService.list(this.sortingModel, this.page, this.perPage)
             .subscribe(
-                blogsList => {
+                postsList => {
                     this.loading = false;
-                    this.blogsList = blogsList;
+                    this.postsList = postsList;
                 },
                 () => {
                     this.loading = false;
@@ -83,27 +80,6 @@ export class BlogsComponent extends CleanupSubscriptionsComponent implements OnI
         if (!this.loading) {
             this.sortingModel = sortingModel;
             this.load();
-        }
-    }
-
-    subscribe(blog: Blog): void {
-        this.blogService.subscribe(blog.id)
-            .subscribe(() => {
-                this.updateSubscribedValue(blog, true);
-            });
-    }
-
-    unsubscribe(blog: Blog): void {
-        this.blogService.unsubscribe(blog.id)
-            .subscribe(() => {
-                this.updateSubscribedValue(blog, false);
-            });
-    }
-
-    private updateSubscribedValue(blog: Blog, subscribed: boolean): void {
-        const foundBlog = this.blogsList.blogs.find(b => b.id === blog.id);
-        if (foundBlog) {
-            foundBlog.subscribed = subscribed;
         }
     }
 
