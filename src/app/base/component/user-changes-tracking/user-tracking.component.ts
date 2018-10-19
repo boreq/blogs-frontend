@@ -5,6 +5,8 @@ import {User} from '../../../auth/dto/user';
 
 export abstract class UserTrackingComponent extends CleanupSubscriptionsComponent implements OnInit {
 
+    private previousUser: User;
+
     constructor(protected authEventsService: AuthEventsService) {
         super();
     }
@@ -17,7 +19,8 @@ export abstract class UserTrackingComponent extends CleanupSubscriptionsComponen
         this.registerSubscription(
             this.authEventsService.loggedIn$
                 .subscribe(user => {
-                    if (user !== undefined) {
+                    if (user !== undefined && user !== this.previousUser) {
+                        this.previousUser = user;
                         this.userLoaded(user);
                     }
                 })
