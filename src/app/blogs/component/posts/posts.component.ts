@@ -6,6 +6,9 @@ import {CleanupSubscriptionsComponent} from '../../../base/component/cleanup-sub
 import {User} from '../../../auth/dto/user';
 import {PostsService} from '../../service/posts.service';
 import {PostsList} from '../../dto/posts-list';
+import {Post} from '../../dto/post';
+import {PostService} from '../../service/post.service';
+import {Blog} from '../../dto/blog';
 
 @Component({
     selector: 'app-posts',
@@ -28,6 +31,7 @@ export class PostsComponent extends CleanupSubscriptionsComponent implements OnI
     postsList: PostsList;
 
     constructor(private postsService: PostsService,
+                private postService: PostService,
                 private authEventsService: AuthEventsService) {
         super();
     }
@@ -80,6 +84,27 @@ export class PostsComponent extends CleanupSubscriptionsComponent implements OnI
         if (!this.loading) {
             this.sortingModel = sortingModel;
             this.load();
+        }
+    }
+
+    star(post: Post): void {
+        this.postService.star(post.id)
+            .subscribe(() => {
+                this.updateStarredValue(post, true);
+            });
+    }
+
+    unstar(post: Post): void {
+        this.postService.unstar(post.id)
+            .subscribe(() => {
+                this.updateStarredValue(post, false);
+            });
+    }
+
+    private updateStarredValue(post: Post, starred: boolean): void {
+        const foundPost = this.postsList.posts.find(b => b.id === post.id);
+        if (foundPost) {
+            foundPost.starred = starred;
         }
     }
 
