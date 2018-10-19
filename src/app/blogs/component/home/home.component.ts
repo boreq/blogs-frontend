@@ -1,25 +1,29 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthEventsService} from '../../../auth/service/auth-events.service';
-import {PostsService} from '../../service/posts.service';
-import {PostService} from '../../service/post.service';
 import {PostsBaseComponent} from '../posts-base/posts-base.component';
+import {PostService} from '../../service/post.service';
+import {PostsService} from '../../service/posts.service';
 
 @Component({
-    selector: 'app-posts',
-    templateUrl: './posts.component.html',
-    styleUrls: ['./posts.component.scss']
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss']
 })
-export class PostsComponent extends PostsBaseComponent implements OnInit {
+export class HomeComponent extends PostsBaseComponent implements OnInit {
 
     constructor(private postsService: PostsService,
-                postService: PostService,
-                authEventsService: AuthEventsService) {
+                authEventsService: AuthEventsService,
+                postService: PostService) {
         super(postService, authEventsService);
+    }
+
+    ngOnInit() {
+        super.ngOnInit();
     }
 
     protected load(): void {
         this.loading = true;
-        this.postsService.list(this.sortingModel, this.page, this.perPage)
+        this.postsService.listFromSubscriptions(this.sortingModel, this.page, this.perPage)
             .subscribe(
                 postsList => {
                     this.loading = false;

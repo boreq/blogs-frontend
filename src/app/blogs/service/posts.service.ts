@@ -13,8 +13,17 @@ export class PostsService {
     constructor(private http: HttpClient) {
     }
 
+    listFromSubscriptions(sortingModel: SortingModel, page: number, perPage: number): Observable<PostsList> {
+        const url = environment.api + 'posts/list/subscriptions';
+        return this.listPosts(url, perPage, page, sortingModel);
+    }
+
     list(sortingModel: SortingModel, page: number, perPage: number): Observable<PostsList> {
         const url = environment.api + 'posts/list';
+        return this.listPosts(url, perPage, page, sortingModel);
+    }
+
+    private listPosts(url: string, perPage: number, page: number, sortingModel: SortingModel): Observable<PostsList> {
         let params = new HttpParams();
         params = params.set('perPage', perPage.toString());
         params = params.set('page', page.toString());
