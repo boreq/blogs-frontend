@@ -21,7 +21,7 @@
             <div *ngIf="!loading">
                 <div>
                     <app-post-element *ngFor="let post of posts?.posts" [post]="post"
-                                      (star)="onStarClick($event)" (onUnstarClick)="onUnstarClick($event)"></app-post-element>
+                                      (star)="onStarClick($event)" (unstar)="onUnstarClick($event)"></app-post-element>
                 </div>
                 <div class="pagination-wrapper">
                     <app-pagination *ngIf="posts" [page]="page" (pageChange)="onPageChange($event)"

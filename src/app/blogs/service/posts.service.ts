@@ -13,6 +13,11 @@ export class PostsService {
     constructor(private http: HttpClient) {
     }
 
+    listStarred(sortingModel: SortingModel, page: number, perPage: number): Observable<PostsList> {
+        const url = environment.api + 'posts/list/starred';
+        return this.listPosts(url, perPage, page, sortingModel);
+    }
+
     listFromSubscriptions(sortingModel: SortingModel, page: number, perPage: number): Observable<PostsList> {
         const url = environment.api + 'posts/list/subscriptions';
         return this.listPosts(url, perPage, page, sortingModel);

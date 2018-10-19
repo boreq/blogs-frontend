@@ -28,6 +28,7 @@ import {PostElementComponent} from './blogs/component/post-element/post-element.
 import {PostsViewComponent} from './blogs/component/posts-view/posts-view.component';
 import {HomeComponent} from './blogs/component/home/home.component';
 import {BlogComponent} from './blogs/component/blog/blog.component';
+import {StarsComponent} from './blogs/component/stars/stars.component';
 
 @NgModule({
     declarations: [
@@ -48,7 +49,8 @@ import {BlogComponent} from './blogs/component/blog/blog.component';
         PostElementComponent,
         BlogComponent,
         PostsViewComponent,
-        HomeComponent
+        HomeComponent,
+        StarsComponent
     ],
     imports: [
         NgbPaginationModule,

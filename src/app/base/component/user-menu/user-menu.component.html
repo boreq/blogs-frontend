@@ -15,6 +15,9 @@
             <i class="fas fa-user"></i> {{user.username}}
         </a>
         <div class="dropdown-menu" ngbDropdownMenu>
+            <a class="dropdown-item" routerLink="/me/stars">Your stars</a>
+            <a class="dropdown-item">Your subscriptions</a>
+            <div class="dropdown-divider"></div>
             <a class="dropdown-item">Settings</a>
             <a class="dropdown-item" (click)="logout()">Sign out</a>
         </div>

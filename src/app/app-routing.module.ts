@@ -4,11 +4,16 @@ import {BlogsComponent} from './blogs/component/blogs/blogs.component';
 import {PostsComponent} from './blogs/component/posts/posts.component';
 import {HomeComponent} from './blogs/component/home/home.component';
 import {BlogComponent} from './blogs/component/blog/blog.component';
+import {StarsComponent} from './blogs/component/stars/stars.component';
 
 const routes: Routes = [
     {
         path: '',
         component: HomeComponent
+    },
+    {
+        path: 'me/stars',
+        component: StarsComponent
     },
     {
         path: 'blogs',
