@@ -1,0 +1,13 @@
+.spinner {
+    margin: 1em 0;
+    font-size: 30px;
+    text-align: center;
+}
+
+.pagination-wrapper {
+    text-align: center;
+
+    app-pagination {
+        display: inline-block;
+    }
+}

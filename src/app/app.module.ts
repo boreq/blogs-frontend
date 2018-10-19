@@ -26,6 +26,8 @@ import {TimeComponent} from './base/component/time/time.component';
 import {PostsComponent} from './blogs/component/posts/posts.component';
 import {PostElementComponent} from './blogs/component/post-element/post-element.component';
 import { BlogComponent } from './blogs/component/blog/blog.component';
+import { PostsViewComponent } from './blogs/component/posts-view/posts-view.component';
+import { PostsBaseComponent } from './blogs/component/posts-base/posts-base.component';
 
 @NgModule({
     declarations: [
@@ -44,7 +46,9 @@ import { BlogComponent } from './blogs/component/blog/blog.component';
         TimeComponent,
         PostsComponent,
         PostElementComponent,
-        BlogComponent
+        BlogComponent,
+        PostsViewComponent,
+        PostsBaseComponent
     ],
     imports: [
         NgbPaginationModule,
