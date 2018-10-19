@@ -83,9 +83,17 @@ export class BlogComponent extends CleanupSubscriptionsComponent implements OnIn
     }
 
     subscribe(): void {
+        this.blogService.subscribe(this.blog.id)
+            .subscribe(() => {
+                this.blog.subscribed = true;
+            });
     }
 
     unsubscribe(): void {
+        this.blogService.unsubscribe(this.blog.id)
+            .subscribe(() => {
+                this.blog.subscribed = false;
+            });
     }
 
 }
