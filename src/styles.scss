@@ -7,7 +7,6 @@ html, body {
     color: $color-text;
 }
 
-/* --- Global --- */
 a:hover {
     cursor: pointer;
 }
@@ -20,61 +19,6 @@ h2 {
     font-size: 18px;
 }
 
-//
-//
-//.form-control:focus {
-//    box-shadow: none;
-//    border-color: $border-color;
-//}
-//
-//.btn-primary {
-//    background-color: $primary-color;
-//    border-color: $primary-color;
-//}
-//
-//.btn-primary:hover {
-//    background-color: darken($primary-color, 20%);
-//    border-color: darken($primary-color, 20%);
-//}
-
-//.btn-primary.active,
-//.btn-primary:active,
-//.btn-primary:focus,
-//.open > .dropdown-toggle.btn-primary,
-//.btn-primary.active.focus,
-//.btn-primary.active:focus,
-//.btn-primary.active:hover,
-//.btn-primary.focus:active,
-//.btn-primary:active:focus,
-//.btn-primary:active:hover,
-//.open > .dropdown-toggle.btn-primary.focus,
-//.open > .dropdown-toggle.btn-primary:focus,
-//.open > .dropdown-toggle.btn-primary:hover {
-//    background-color: darken($primary-color, 30%);
-//    border-color: darken($primary-color, 30%);
-//    color: #fff;
-//}
-//
-//.dropdown-toggle {
-//    color: inherit;
-//}
-//
-//.dropdown-toggle:hover {
-//    color: $primary-color;
-//}
-//
-//.nav .open > a, .nav .open > a:focus, .nav .open > a:hover {
-//    color: $primary-color;
-//    background-color: transparent;
-//}
-//
-//.nav-pills > li.active > a,
-//.nav-pills > li.active > a:focus,
-//.nav-pills > li.active > a:hover {
-//    background-color: $primary-color;
-//    color: #fff;
-//}
-//
 a {
     color: $color-primary;
 }
@@ -83,38 +27,3 @@ a:hover {
     color: $color-primary;
     text-decoration: underline;
 }
-
-//
-//.dimmed {
-//    color: $color-dimmed;
-//}
-//
-//.disabled {
-//    cursor: not-allowed;
-//}
-//
-//.pagination>.active>a,
-//.pagination>.active>a:focus,
-//.pagination>.active>a:hover,
-//.pagination>.active>span,
-//.pagination>.active>span:focus,
-//.pagination>.active>span:hover {
-//    background-color: $primary-color;
-//    border-color: $primary-color;
-//}
-//
-//.pagination>li>a,
-//.pagination>li>span {
-//    color: $primary-color;
-//}
-//
-//.message {
-//    text-align: center;
-//
-//    i {
-//        display: block;
-//        font-size: 40px;
-//        margin-bottom: 20px;
-//    }
-//}
-

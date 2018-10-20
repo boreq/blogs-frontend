@@ -31,7 +31,8 @@
                 <ul>
                     <li *ngFor="let category of categories">
                         <a href="#">
-                            {{category.name}}
+                            <span *ngIf="category.name">{{category.name}}</span>
+                            <span *ngIf="!category.name">Default category</span>
                         </a>
                     </li>
                 </ul>
@@ -40,6 +41,7 @@
             <div class="tags" *ngIf="tags">
                 <h2>Tags</h2>
                 <ul>
+                    <span class="text-muted" *ngIf="tags.length == 0">there are no tags</span>
                     <li *ngFor="let tag of tags">
                         <a href="#">
                             #{{tag.name}}
