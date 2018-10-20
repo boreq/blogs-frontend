@@ -14,9 +14,7 @@
             <a href="{{post.url}}">{{post.title}}</a>
         </span>
         <ul class="tags">
-            <li><a href="#">#tag1</a></li>
-            <li><a href="#">#tag2</a></li>
-            <li><a href="#">#tag3</a></li>
+            <li *ngFor="let tag of post?.tags"><a href="#">#{{tag.name}}</a></li>
         </ul>
     </div>
     <div class="info">

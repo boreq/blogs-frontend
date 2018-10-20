@@ -1,5 +1,6 @@
 import {Blog} from './blog';
 import {Category} from './category';
+import {Tag} from './tag';
 
 export class Post {
     id: number;
@@ -10,5 +11,6 @@ export class Post {
     url: string;
     starred?: boolean;
     category: Category;
+    tags: Tag[];
     blog: Blog;
 }
