@@ -1,0 +1,7 @@
+<app-posts-view header="Your stars"
+                [sortingDefinitions]="sortingDefinitions"
+                [sortingModel]="sortingModel" (sortingModelChange)="onSortingModelChange($event)"
+                [perPage]="perPage"
+                [page]="page" (pageChange)="onPageChange($event)"
+                [posts]="postsList" [loading]="loading"
+                (star)="star($event)" (unstar)="unstar($event)"></app-posts-view>
