@@ -29,6 +29,8 @@ import {PostsViewComponent} from './blogs/component/posts-view/posts-view.compon
 import {HomeComponent} from './blogs/component/home/home.component';
 import {BlogComponent} from './blogs/component/blog/blog.component';
 import {StarsComponent} from './blogs/component/stars/stars.component';
+import {BlogsViewComponent} from './blogs/component/blogs-view/blogs-view.component';
+import {SubscriptionsComponent} from './blogs/component/subscriptions/subscriptions.component';
 
 @NgModule({
     declarations: [
@@ -50,7 +52,9 @@ import {StarsComponent} from './blogs/component/stars/stars.component';
         BlogComponent,
         PostsViewComponent,
         HomeComponent,
-        StarsComponent
+        StarsComponent,
+        BlogsViewComponent,
+        SubscriptionsComponent
     ],
     imports: [
         NgbPaginationModule,

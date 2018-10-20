@@ -5,6 +5,7 @@ import {PostsComponent} from './blogs/component/posts/posts.component';
 import {HomeComponent} from './blogs/component/home/home.component';
 import {BlogComponent} from './blogs/component/blog/blog.component';
 import {StarsComponent} from './blogs/component/stars/stars.component';
+import {SubscriptionsComponent} from './blogs/component/subscriptions/subscriptions.component';
 
 const routes: Routes = [
     {
@@ -14,6 +15,10 @@ const routes: Routes = [
     {
         path: 'me/stars',
         component: StarsComponent
+    },
+    {
+        path: 'me/subscriptions',
+        component: SubscriptionsComponent
     },
     {
         path: 'blogs',

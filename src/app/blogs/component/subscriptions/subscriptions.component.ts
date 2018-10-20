@@ -5,11 +5,11 @@ import {AuthEventsService} from '../../../auth/service/auth-events.service';
 import {BlogsService} from '../../service/blogs.service';
 
 @Component({
-    selector: 'app-blogs',
-    templateUrl: './blogs.component.html',
-    styleUrls: ['./blogs.component.scss']
+    selector: 'app-subscriptions',
+    templateUrl: './subscriptions.component.html',
+    styleUrls: ['./subscriptions.component.scss']
 })
-export class BlogsComponent extends BlogsBaseComponent implements OnInit {
+export class SubscriptionsComponent extends BlogsBaseComponent implements OnInit {
 
     constructor(private blogsService: BlogsService,
                 blogService: BlogService,
@@ -19,7 +19,7 @@ export class BlogsComponent extends BlogsBaseComponent implements OnInit {
 
     protected load(): void {
         this.loading = true;
-        this.blogsService.list(this.sortingModel, this.page, this.perPage)
+        this.blogsService.listSubscribed(this.sortingModel, this.page, this.perPage)
             .subscribe(
                 blogsList => {
                     this.loading = false;
